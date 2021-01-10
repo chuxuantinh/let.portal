@@ -1,0 +1,40 @@
+name: LET Portal Build
+on:
+  workflow_dispatch:
+  push:
+    branches: [ master ]
+    paths: 
+      - 'src/web-apis/**'
+      - 'src/web-portal/**'
+  pull_request:
+    branches: [ master ]
+    paths: 
+      - 'src/web-apis/**'
+      - 'src/web-portal/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.101
+    - name: Setup Node
+      uses: actions/setup-node@v1
+      with:
+        node-version: '12.x'
+    - name: Build with dotnet
+      run: dotnet build LetPortal.sln
+      working-directory: ./src/web-apis
+    - name: Install npm packages
+      run: npm install
+      working-directory: ./src/web-portal
+    - name: Install Angular CLI
+      run: npm install -g @angular/cli
+      working-directory: ./src/web-portal
+    - name: Build npm packages
+      run: npm run prod
+      working-directory: ./src/web-portal
+    

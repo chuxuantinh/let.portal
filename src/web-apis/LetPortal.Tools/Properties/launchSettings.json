@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "LET.Tools.Installation": {
+      "commandName": "Project",
+      "commandLineArgs": "blog install -c mongodb://localhost:27117/cms"
+    }
+  }
+}

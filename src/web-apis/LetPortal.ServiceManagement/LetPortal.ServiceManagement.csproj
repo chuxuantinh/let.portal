@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <Version>0.5.0</Version>
+    <Company>LetPortal</Company>
+    <Product>LetPortal</Product>
+    <Authors>An Quang Phuc Le</Authors>
+    <Description>LETPortal is a web platform to build quickly application form, grid data, data list, chart, report, users management. The project is open-source project. There are no fee charged to use or modify.</Description>
+    <Copyright>An Quang Phuc Le</Copyright>
+    <PackageProjectUrl>https://letportal.app</PackageProjectUrl>
+    <PackageTags>Web Portal; .NET Core;</PackageTags>
+  </PropertyGroup>
+  <Import Project="..\..\editorconfig.props" Condition="Exists('..\..\editorconfig.props')" />
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.8">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.1" />
+    <PackageReference Include="mongocsharpdriver" Version="2.10.1" />
+    <PackageReference Include="MongoDB.Driver" Version="2.10.1" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="3.1.1.2" />
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="3.1.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LetPortal.Core\LetPortal.Core.csproj" />
+  </ItemGroup>
+</Project>
